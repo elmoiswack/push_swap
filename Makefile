@@ -9,13 +9,6 @@ LIBFTLIB	:= $(LIBFT)/libft.a
 HEADERS	:=	-I $(LIBFT) -I includes -I $(MLX)/includes
 
 SRC	:=	./srcs/main.c \
-		./srcs/error.c \
-		./srcs/argument_check.c \
-		./srcs/swap.c \
-		./srcs/rotate.c \
-		./srcs/reverse_rotate.c \
-		./srcs/total_function.c \
-		./srcs/push.c \
 
 OBJ := $(SRC:.c=.o)
 
