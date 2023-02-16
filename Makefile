@@ -9,13 +9,19 @@ LIBFTLIB	:= $(LIBFT)/libft.a
 HEADERS	:=	-I $(LIBFT) -I includes -I $(MLX)/includes
 
 SRC	:=	./srcs/main.c \
+		./srcs/error.c \
+		./srcs/argument_checker.c \
+		./srcs/into_stack.c \
+		./srcs/operations/swap.c \
+		./srcs/operations/rotate.c \
+		./srcs/operations/reverse_rotate.c \
+		./srcs/operations/push.c \
 
 OBJ := $(SRC:.c=.o)
 
-CC	:=	gcc 
-# -fsanitize=address
+CC	:=	gcc -fsanitize=address
 
-CFLAGS	:= -Wall -Wextra -Werror
+CFLAGS	:= -g -Wall -Wextra -Werror
 
 all: libs $(NAME)
 
