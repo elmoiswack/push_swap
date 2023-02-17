@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:08:04 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/17 15:40:12 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:46:19 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 typedef struct stack_a {
 	int				numb;
 	int				total;
-	struct stack_a	*head;
 	struct stack_a	*next;
 }	a_stack;
 

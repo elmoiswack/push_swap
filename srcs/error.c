@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 11:58:04 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/17 13:49:08 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:02:42 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,32 @@
 
 void	free_a_list(a_stack *a)
 {
-	while (a->next != NULL)
+	int	count;
+	int	max;
+
+	max = a->total;
+	count = 0;
+	while (count < max)
 	{
 		free(a);
 		a = a->next;
+		count++;
 	}
-	free(a);
 	return ;
 }
 
 void	free_b_list(b_stack *b)
 {
-	while (b->next != NULL)
+	int	count;
+	int	max;
+
+	max = b->total;
+	count = 0;
+	while (count < max)
 	{
 		free(b);
 		b = b->next;
+		count++;
 	}
 	free(b);
 	return ;
