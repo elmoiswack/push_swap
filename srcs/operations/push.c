@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:18:36 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/16 16:49:06 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:36:12 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@ void	pb_helper(b_stack *b, int temp)
 {
 	int	temp2;
 	int	count;
+	int	max;
 
-	count = 1;
+	max = b->total;
+	count = 0;
 	if (b->total != 1)
-	{		
-		while (count < b->total)
+	{	
+		while (count < max)
 		{
 			temp2 = b->numb;
-			b->next->numb = temp2;
 			b->numb = temp;
 			temp = temp2;
 			b = b->next;
@@ -57,6 +58,7 @@ void	pb(a_stack *a, b_stack *b)
 	}
 	b->total += 1;
 	pb_helper(b, temp_to_b);
+	writing_operations(5);
 	return ;
 }
 
@@ -64,14 +66,15 @@ void	pa_helper(a_stack *a, int temp)
 {
 	int	temp2;
 	int	count;
+	int	max;
 
-	count = 1;
+	max = a->total;
+	count = 0;
 	if (a->total != 1)
-	{		
-		while (count < a->total)
+	{	
+		while (count < max)
 		{
 			temp2 = a->numb;
-			a->next->numb = temp2;
 			a->numb = temp;
 			temp = temp2;
 			a = a->next;
@@ -105,5 +108,6 @@ void	pa(a_stack *a, b_stack *b)
 	}
 	a->total += 1;
 	pa_helper(a, temp_to_a);
+	writing_operations(4);
 	return ;
 }

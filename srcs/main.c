@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:21:15 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/16 16:41:16 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:10:23 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	printf_stack(a_stack *a, b_stack *b)
 	b_max = b->total;
 	if (b_max == 0)
 		return ;
+	printf("\n");
 	while (b_count < b_max)
 	{
 		printf("b numb = %i\n", b->numb);
@@ -72,33 +73,6 @@ int	main(int argc, char *argv[])
 		error_exit("Err0r\nAllocation of list B failed!");
 	into_stack(argv, argc, a);
 	allocate_stack_b(b, a->total);
-	printf_stack(a, b);
-	printf("\n");
-	ra(a);
-	printf_stack(a, b);
-	printf("\n");
-	rra(a);
-	printf_stack(a, b);
-	printf("\n");
-	pb(a, b);
-	printf_stack(a, b);
-	printf("\n");
-	pb(a, b);
-	printf_stack(a, b);
-	printf("\n");
-	pb(a, b);
-	printf_stack(a, b);
-	printf("\n");
-	pb(a, b);
-	printf_stack(a, b);
-	printf("\n");
-	pa(a, b);
-	printf_stack(a, b);
-	printf("\n");
-	pa(a, b);
-	printf_stack(a, b);
-	printf("\n");
-	pa(a, b);
 	printf_stack(a, b);
 	exit(EXIT_SUCCESS);
 }
