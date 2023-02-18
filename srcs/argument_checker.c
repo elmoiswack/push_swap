@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 12:27:48 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/08 12:10:49 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/18 13:36:04 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,25 +50,26 @@ char	**string_argument(char *argv[])
 	return (argv);
 }
 
-int	argument_check(int argc, char *argv[])
+char	**argument_check(int argc, char *argv[])
 {
 	int	index;
 
 	index = 1;
 	if (argc < 2)
-		return (-1);
+		return (NULL);
 	if (argc == 2)
 	{
 		index = 0;
 		argv = string_argument(argv);
+		return (argv);
 	}
 	while (argv[index])
 	{
 		if (digit_check(argv[index]) == -1)
-			return (-1);
+			return (NULL);
 		// if (doubles_check(argv) == -1)
 		// 	return (-1);		
 		index++;
 	}
-	return (1);
+	return (argv);
 }

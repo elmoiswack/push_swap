@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:21:15 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/17 17:03:24 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/18 16:14:58 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,21 @@ int	main(int argc, char *argv[])
 	a_stack *a;
 	b_stack *b;
 
-	if (argument_check(argc, argv) == -1)
+	argv = argument_check(argc, argv);
+	if (!argv)
 		error_exit("Error\nWrong argument given!");
 	a = ft_calloc(1, sizeof(a_stack));
 	if (!a)
-		error_exit("Err0r\nAllocation of list A failed!");
+		error_exit("Error\nAllocation of list A failed!");
 	b = ft_calloc(1, sizeof(b_stack));
 	if (!b)
-		error_exit("Err0r\nAllocation of list B failed!");
+		error_exit("Error\nAllocation of list B failed!");
 	into_stack(argv, argc, a);
 	allocate_stack_b(b, a->total);
+	if (small_sorting(a, b, argc) == 1)
+		exit(EXIT_SUCCESS);
+	// else if (sorting(a, b) == -1)
+	// 	error_exit("Error\n");
 	printf_stack(a, b);
 	exit(EXIT_SUCCESS);
 }

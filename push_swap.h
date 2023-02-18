@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:08:04 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/17 16:46:19 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/18 16:15:43 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,13 @@ typedef struct stack_b {
 	struct stack_b	*next;
 }	b_stack;
 
-int		argument_check(int argc, char *argv[]);
+void	printf_stack(a_stack *a, b_stack *b);
+
+int		small_sorting(a_stack *a, b_stack *b, int argc);
+int		sorting_2numb(a_stack *a);
+
+int		sorting(a_stack *a, b_stack *b);
+char	**argument_check(int argc, char *argv[]);
 void	error_exit(char *str);
 void	into_stack(char *argv[], int argc, a_stack *a);
 void	free_a_list(a_stack *a);

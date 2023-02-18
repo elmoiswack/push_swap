@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 12:11:47 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/16 15:34:14 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/18 13:44:08 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,16 @@ void	into_stack(char *argv[], int argc, a_stack *a)
 	y_max = 0;
 	while (argv[y_max])
 		y_max++;
-	a->total = y_max - 1;
 	if (argc != 2)
+	{
+		a->total = y_max - 1;
 		index_y = 1;
+	}
 	else
+	{
+		a->total = y_max;
 		index_y = 0;
+	}
 	while (index_y < y_max)
 	{
 		a->numb = ft_atoi(argv[index_y]);

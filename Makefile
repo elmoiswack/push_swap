@@ -17,6 +17,8 @@ SRC	:=	./srcs/main.c \
 		./srcs/operations/reverse_rotate.c \
 		./srcs/operations/push.c \
 		./srcs/writing.c \
+		./srcs/sorting.c \
+		./srcs/extra_sorting.c \
 
 OBJ := $(SRC:.c=.o)
 
