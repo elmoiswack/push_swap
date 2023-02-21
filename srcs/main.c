@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:21:15 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/20 17:58:37 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/21 12:04:00 by dantehussai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,17 @@ int	arguments(int argc, char *argv[], a_stack *a, b_stack *b)
 {
 	argv = argument_check(argc, argv);
 	if (!argv)
-		error_exit("Error\nWrong argument given!");
-	if (overflow_check(argc, argv) == -1)
+	{
+		free(a);
+		free(b);
 		return (-1);
+	}
+	if (overflow_check(argc, argv) == -1)
+	{
+		free(a);
+		free(b);
+		return (-1);
+	}
 	if (into_stack(argv, argc, a) == -1)
 	{
 		free_a_list(a);
@@ -91,23 +99,31 @@ int	main(int argc, char *argv[])
 	a_stack *a;
 	b_stack *b;
 
+	if (argc < 2)
+		exit(EXIT_SUCCESS);
 	a = ft_calloc(1, sizeof(a_stack));
 	if (!a)
 		error_exit("Error");
 	b = ft_calloc(1, sizeof(b_stack));
 	if (!b)
+	{
+		free(a);
 		error_exit("Error");
+	}
 	if (arguments(argc, argv, a, b) == -1)
 		error_exit("Error");
 	if (argc == 2)
 		argc = a->total + 1;
-	smaller_sorting(a, b, argc);
+	if (smaller_sorting(a, b, argc) == 1)
+	{
+		free_both_lists(a, b);
+		exit(EXIT_SUCCESS);
+	}
 	if (sorting(a, b) == -1)
 	{
 		free_both_lists(a, b);
 		error_exit("Error");
 	}
-	printf_stack(a, b);
 	free_both_lists(a, b);
 	exit(EXIT_SUCCESS);
 }

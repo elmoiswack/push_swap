@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:18:36 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/17 15:36:12 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/21 10:44:56 by dantehussai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	pb(a_stack *a, b_stack *b)
 	int	max;
 
 	if (a->total == 0)
-		return ;
+		return ;	
 	temp_to_b = a->numb;
 	max = a->total;
 	a->total -= 1;

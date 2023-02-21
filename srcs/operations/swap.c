@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 12:50:26 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/17 15:35:45 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/21 10:51:48 by dantehussai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(a_stack *a)
 {
 	int	temp;
 
-	if (a == NULL || a->next == NULL)
+	if (a->total == 0 || a->total == 1)
 		return ;
 	temp = a->numb;
 	a->numb = a->next->numb;
@@ -30,6 +30,8 @@ void	sb(b_stack *b)
 {
 	int	temp;
 
+	if (b->total == 0 || b->total == 1)
+		return ;
 	temp = b->numb;
 	b->numb = b->next->numb;
 	b = b->next;

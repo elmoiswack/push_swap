@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 12:40:35 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/20 16:15:15 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/21 12:00:09 by dantehussai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ int	sorting(a_stack *a, b_stack *b)
 	max = a->total;
 	middle = max / 2;
 	count_loop = 0;
-	if (is_a_sorted(a) == 1)
-		return (1);
 	while (count_loop < max - 1)
 	{
 		smallest_numb = get_smallest_numb(a);
@@ -82,7 +80,7 @@ int	sorting(a_stack *a, b_stack *b)
 			{
 				push_to_a(a, b);
 				return (1);
-			}		
+			}
 		}
 		else
 		{
@@ -97,17 +95,21 @@ int	sorting(a_stack *a, b_stack *b)
 			}	
 		}
 		pb(a, b);
-		if (a->total == 2 && a->numb < a->next->numb)
+		if (a->total == 2)
 		{
-			push_to_a(a, b);
-			return (1);
+			if (a->numb < a->next->numb)
+			{
+				push_to_a(a, b);
+				return (1);
+			}
+			else
+			{
+				sa(a);
+				push_to_a(a, b);
+				return (1);
+			}
 		}
 		count_loop++;
-	}
-	if (is_b_sorted(b) == 1)
-	{
-		push_to_a(a, b);
-		return (1);
 	}
 	return (-1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   argument_checker.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 12:27:48 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/20 17:53:24 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/21 11:15:03 by dantehussai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ char	**argument_check(int argc, char *argv[])
 	int	index;
 
 	index = 1;
-	if (argc < 2)
-		return (NULL);
 	if (argc == 2)
 	{
 		if (argv[index][0] == '\0')

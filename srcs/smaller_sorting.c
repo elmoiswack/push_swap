@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   smaller_sorting.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:19:37 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/20 17:56:45 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/02/21 11:26:25 by dantehussai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,12 @@ int	sort_4numb(a_stack *a, b_stack *b)
 {
 	int	smallest;
 	int	position;
-	
+
+	if (a->next->next->numb < a->next->next->next->numb)
+	{
+		sort_2numb(a);
+		return (1);
+	}
 	smallest = get_smallest_numb(a);
 	position = get_position(smallest, a);
 	if (position == 1)
