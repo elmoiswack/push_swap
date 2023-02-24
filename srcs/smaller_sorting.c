@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   smaller_sorting.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
+/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:19:37 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/21 11:26:25 by dantehussai      ###   ########.fr       */
+/*   Updated: 2023/02/24 17:25:06 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,6 @@ int	sort_4numb(a_stack *a, b_stack *b)
 	int	smallest;
 	int	position;
 
-	if (a->next->next->numb < a->next->next->next->numb)
-	{
-		sort_2numb(a);
-		return (1);
-	}
 	smallest = get_smallest_numb(a);
 	position = get_position(smallest, a);
 	if (position == 1)
@@ -68,6 +63,8 @@ int	sort_4numb(a_stack *a, b_stack *b)
 	}
 	else if (position == 3)
 		rra(a);
+	if (is_a_sorted(a) == 1)
+		return (1);
 	pb(a, b);
 	sort_3numb(a);
 	pa(a, b);
@@ -95,6 +92,8 @@ int	sort_5numb(a_stack *a, b_stack *b)
 	}
 	else if (position == 4)
 		rra(a);
+	if (is_a_sorted(a) == 1)
+		return (1);
 	pb(a, b);
 	sort_4numb(a, b);
 	pa(a, b);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   argument_checker.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
+/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 12:27:48 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/21 11:15:03 by dantehussai      ###   ########.fr       */
+/*   Updated: 2023/02/24 17:20:41 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ char	**string_argument(char *argv[])
 		return (argv);
 	}
 	else
+	{
+		if (digit_check(argv[1]) == -1)
+			return (NULL);
 		exit(EXIT_SUCCESS);
+	}
 	return (argv);
 }
 
@@ -58,7 +62,8 @@ char	**argument_check(int argc, char *argv[])
 			return (NULL);
 		index = 0;
 		argv = string_argument(argv);
-		return (argv);
+		if (!argv)
+			return (NULL);
 	}
 	while (argv[index])
 	{

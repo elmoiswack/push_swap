@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
+/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:21:15 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/21 12:04:00 by dantehussai      ###   ########.fr       */
+/*   Updated: 2023/02/24 17:22:48 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ int	main(int argc, char *argv[])
 		argc = a->total + 1;
 	if (smaller_sorting(a, b, argc) == 1)
 	{
+		//printf_stack(a, b);
 		free_both_lists(a, b);
 		exit(EXIT_SUCCESS);
 	}
@@ -125,5 +126,6 @@ int	main(int argc, char *argv[])
 		error_exit("Error");
 	}
 	free_both_lists(a, b);
+	// printf_stack(a, b);
 	exit(EXIT_SUCCESS);
 }
