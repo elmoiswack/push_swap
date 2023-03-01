@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:08:04 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/20 16:51:28 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:52:29 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,16 @@ void	writing_operations(int i);
 //sorting functions
 int		smaller_sorting(a_stack *a, b_stack *b, int argc);
 int		sorting(a_stack *a, b_stack *b);
+int		get_biggest_numb(a_stack *a);	
 int		get_smallest_numb(a_stack *a);
 int		get_position(int smallest_numb, a_stack *a);
 void	push_to_a(a_stack *a, b_stack *b);
 int		is_a_sorted(a_stack *a);
 int		is_b_sorted(b_stack *b);
 
+int		sort_3numb(a_stack *a);
+int		sort_4numb(a_stack *a, b_stack *b);
+int		sort_5numb(a_stack *a, b_stack *b);
 //operations
 void	sa(a_stack *a);
 void	sb(b_stack *b);

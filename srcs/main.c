@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:21:15 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/24 17:22:48 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:40:28 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,13 @@ int	arguments(int argc, char *argv[], a_stack *a, b_stack *b)
 	if (into_stack(argv, argc, a) == -1)
 	{
 		free_a_list(a);
+		free(b);
 		return (-1);
 	}
 	if (doubles_checker(a) == -1)
 	{
 		free_a_list(a);
+		free(b);
 		return (-1);
 	}
 	b->total = allocate_stack_b(b, a->total);
@@ -103,29 +105,29 @@ int	main(int argc, char *argv[])
 		exit(EXIT_SUCCESS);
 	a = ft_calloc(1, sizeof(a_stack));
 	if (!a)
-		error_exit("Error");
+		error_exit("Error\nAllocation failed");
 	b = ft_calloc(1, sizeof(b_stack));
 	if (!b)
 	{
 		free(a);
-		error_exit("Error");
+		error_exit("Error\nAllocation failed");
 	}
 	if (arguments(argc, argv, a, b) == -1)
-		error_exit("Error");
+		error_exit("Error\nArguments wrong");
 	if (argc == 2)
 		argc = a->total + 1;
 	if (smaller_sorting(a, b, argc) == 1)
 	{
-		//printf_stack(a, b);
+		printf_stack(a, b);
 		free_both_lists(a, b);
 		exit(EXIT_SUCCESS);
 	}
 	if (sorting(a, b) == -1)
 	{
 		free_both_lists(a, b);
-		error_exit("Error");
+		error_exit("Error\nFailed sorting");
 	}
+	printf_stack(a, b);
 	free_both_lists(a, b);
-	// printf_stack(a, b);
 	exit(EXIT_SUCCESS);
 }

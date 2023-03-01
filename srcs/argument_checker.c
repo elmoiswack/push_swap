@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 12:27:48 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/24 17:20:41 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:41:27 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int	digit_check(char *str)
 	int	index;
 
 	index = 0;
+	if (str[0] == '-')
+		index++;
+	if (str[index] == '\0')
+		return (-1);	
 	while (str[index])
 	{
-		if (str[index] == '-')
-			index++;
-		if (str[index] == '\0')
-			return (-1);
-		if (ft_isdigit(str[index]) != 1)
+		if (ft_isdigit(str[index]) == 0)
 			return (-1);
 		index++;
 	}
@@ -70,7 +70,7 @@ char	**argument_check(int argc, char *argv[])
 		if (argv[index][0] == '\0')
 			return (NULL);
 		if (digit_check(argv[index]) == -1)
-			return (NULL);	
+			return (NULL);			
 		index++;
 	}
 	return (argv);
