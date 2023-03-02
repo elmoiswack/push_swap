@@ -5,69 +5,103 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/18 12:40:35 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/01 14:21:45 by dhussain         ###   ########.fr       */
+/*   Created: 2023/03/02 13:04:44 by dhussain          #+#    #+#             */
+/*   Updated: 2023/03/02 17:30:39 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	algorithm(a_stack *a, b_stack *b)
+char	**copy_array(t_astack *a)
 {
-	int	max;
-	int	smallest;
-	int	position;
-	int	middle;
+	char	**arr;
+	int		index;
+	int		max;
 
 	max = a->total;
-	middle = max / 2;
-	if (is_a_sorted(a) == 1)
-		return (1);
-	while (max > 5)
+	index = 0;
+	arr = malloc(max * sizeof(char *));
+	if (!arr)
+		return (NULL);
+	while (index < max)
 	{
-		smallest = get_smallest_numb(a);
-		position = get_position(smallest, a);
-		if (position > middle)
-		{
-			while (smallest != a->numb)
-				rra(a);
-			if (is_a_sorted(a) == 1 && b->total == 0)
-				return (1);
-			if (is_a_sorted(a) == 1 && b->total != 0)
-			{
-				push_to_a(a, b);
-				return (1);
-			}
-		}
-		else
-		{
-			while (smallest != a->numb)
-				ra(a);
-			if (is_a_sorted(a) == 1 && b->total == 0)
-				return (1);
-			if (is_a_sorted(a) == 1 && b->total != 0)
-			{
-				push_to_a(a, b);
-				return (1);
-			}	
-		}
-		pb(a, b);
-		max--;
+		arr[index] = ft_itoa(a->numb);
+		a = a->next;
+		index++;
 	}
-	if (a->total == 5)
-		sort_5numb(a, b);
-	if (is_a_sorted(a) == 1)
-	{
-		push_to_a(a, b);
-		return (1);
-	}
-	return (0);
+	return (arr);
 }
 
-int	sorting(a_stack *a, b_stack *b)
+int	find_pivot(char **numb_arr, int max)
 {
-	algorithm(a, b);
+	int	pivot;
+	int	biggest;
+	int	index;
+	int	middle;
+	char	*temp;
+	
+	middle = max / 2;
+	while (max > middle)
+	{
+		biggest = get_biggest_numb(numb_arr, max);
+		index = 0;
+		while (numb_arr[index])
+		{
+			if (ft_atoi(numb_arr[index]) == biggest)
+			{
+				while (index < (max - 1))
+				{
+					temp = numb_arr[index + 1];
+					numb_arr[index] = temp;
+					index++;
+				}
+				break ;
+			}
+			index++;
+		}
+		max--;
+	}
+	index = 0;
+	while (index < max)
+	{
+		printf("aa %s\n", numb_arr[index]);
+		index++;
+	}
+	pivot = get_biggest_numb(numb_arr, max);
+	return (pivot);
+}
+
+void	pivot_to_b(t_astack *a, t_bstack *b, int pivot)
+{
+	int	count;
+	int	max;
+	
+	count = 0;
+	max = a->total;
+	while (count < (max - 1))
+	{
+		if (a->numb < pivot)
+			pb(a, b);
+		else
+			ra(a);
+		count++;
+	}
+	return ;
+}
+
+int	sorting(t_astack *a, t_bstack *b)
+{
+	char	**numb_arr;
+	int		pivot;
+
 	if (is_a_sorted(a) == 1)
 		return (1);
-	return (0);
+	numb_arr = copy_array(a);
+	if (!numb_arr)
+		return (-1);
+	pivot = find_pivot(numb_arr, a->total);
+	printf("pivot = %i\n", pivot);
+	//pivot_to_b(a, b, pivot);
+	printf_stack(a, b);
+	exit(1);
 }

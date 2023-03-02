@@ -6,19 +6,19 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 10:55:38 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/17 15:43:20 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/02 10:52:10 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	rra(a_stack *a)
+void	rra(t_astack *a)
 {
-	a_stack	*head;
-	int	temp;
-	int	temp2;
-	int	max;
-	int	count;
+	t_astack	*head;
+	int			temp;
+	int			temp2;
+	int			max;
+	int			count;
 
 	temp = a->numb;
 	head = a;
@@ -38,13 +38,13 @@ void	rra(a_stack *a)
 	return ;
 }
 
-void	rrb(b_stack *b)
+void	rrb(t_bstack *b)
 {
-	b_stack	*head;
-	int	temp;
-	int	temp2;
-	int	max;
-	int	count;
+	t_bstack	*head;
+	int			temp;
+	int			temp2;
+	int			max;
+	int			count;
 
 	temp = b->numb;
 	head = b;
@@ -64,7 +64,7 @@ void	rrb(b_stack *b)
 	return ;
 }
 
-void	rrr(a_stack *a, b_stack *b)
+void	rrr(t_astack *a, t_bstack *b)
 {
 	rra(a);
 	rrb(b);

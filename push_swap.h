@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:08:04 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/01 11:52:29 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/02 16:41:22 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,53 +23,55 @@ typedef struct stack_a {
 	int				numb;
 	int				total;
 	struct stack_a	*next;
-}	a_stack;
+}	t_astack;
 
 typedef struct stack_b {
 	int				numb;
 	int				total;
 	struct stack_b	*next;
-}	b_stack;
+}	t_bstack;
 
-void	printf_stack(a_stack *a, b_stack *b);
+void	printf_stack(t_astack *a, t_bstack *b);
 
 //arguments checks
 char	**argument_check(int argc, char *argv[]);
 int		overflow_check(int argc, char *argv[]);
-int		into_stack(char *argv[], int argc, a_stack *a);
-int		doubles_checker(a_stack *a);
-int		checker_function(a_stack *a, int numb);
+int		into_stack(char *argv[], int argc, t_astack *a);
+int		doubles_checker(t_astack *a);
+int		checker_function(t_astack *a, int numb);
 
 void	error_exit(char *str);
-void	free_a_list(a_stack *a);
-void	free_b_list(b_stack *b);
-void	free_both_lists(a_stack *a, b_stack *b);
+void	free_a_list(t_astack *a);
+void	free_b_list(t_bstack *b);
+void	free_both_lists(t_astack *a, t_bstack *b);
 void	writing_operations(int i);
 
 //sorting functions
-int		smaller_sorting(a_stack *a, b_stack *b, int argc);
-int		sorting(a_stack *a, b_stack *b);
-int		get_biggest_numb(a_stack *a);	
-int		get_smallest_numb(a_stack *a);
-int		get_position(int smallest_numb, a_stack *a);
-void	push_to_a(a_stack *a, b_stack *b);
-int		is_a_sorted(a_stack *a);
-int		is_b_sorted(b_stack *b);
+int		sorting(t_astack *a, t_bstack *b);
+//smaller sorting
+int		smaller_sorting(t_astack *a, t_bstack *b, int argc);
+int		sort_3numb(t_astack *a);
+int		sort_4numb(t_astack *a, t_bstack *b);
+int		sort_5numb(t_astack *a, t_bstack *b);
+//sorting helpers
+int		get_biggest_numb(char **numb_arr, int max);
+int		get_smallest_numb(t_astack *a);
+int		get_position(int smallest_numb, t_astack *a);
+void	push_to_a(t_astack *a, t_bstack *b);
+int		is_a_sorted(t_astack *a);
 
-int		sort_3numb(a_stack *a);
-int		sort_4numb(a_stack *a, b_stack *b);
-int		sort_5numb(a_stack *a, b_stack *b);
+
 //operations
-void	sa(a_stack *a);
-void	sb(b_stack *b);
-void	ss(a_stack *a, b_stack *b);
-void	ra(a_stack *a);
-void	rb(b_stack *b);
-void	rr(a_stack *a, b_stack *b);
-void	rra(a_stack *a);
-void	rrb(b_stack *b);
-void	rrr(a_stack *a, b_stack *b);
-void	pb(a_stack *a, b_stack *b);
-void	pa(a_stack *a, b_stack *b);
+void	sa(t_astack *a);
+void	sb(t_bstack *b);
+void	ss(t_astack *a, t_bstack *b);
+void	ra(t_astack *a);
+void	rb(t_bstack *b);
+void	rr(t_astack *a, t_bstack *b);
+void	rra(t_astack *a);
+void	rrb(t_bstack *b);
+void	rrr(t_astack *a, t_bstack *b);
+void	pb(t_astack *a, t_bstack *b);
+void	pa(t_astack *a, t_bstack *b);
 
 #endif

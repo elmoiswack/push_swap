@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
+/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 12:50:26 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/21 10:51:48 by dantehussai      ###   ########.fr       */
+/*   Updated: 2023/03/02 10:51:27 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	sa(a_stack *a)
+void	sa(t_astack *a)
 {
 	int	temp;
 
@@ -26,7 +26,7 @@ void	sa(a_stack *a)
 	return ;
 }
 
-void	sb(b_stack *b)
+void	sb(t_bstack *b)
 {
 	int	temp;
 
@@ -40,7 +40,7 @@ void	sb(b_stack *b)
 	return ;
 }
 
-void	ss(a_stack *a, b_stack *b)
+void	ss(t_astack *a, t_bstack *b)
 {
 	sa(a);
 	sb(b);

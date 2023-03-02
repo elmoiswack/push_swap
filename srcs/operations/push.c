@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
+/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:18:36 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/21 10:44:56 by dantehussai      ###   ########.fr       */
+/*   Updated: 2023/03/02 10:53:17 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	pb_helper(b_stack *b, int temp)
+void	pb_helper(t_bstack *b, int temp)
 {
 	int	temp2;
 	int	count;
@@ -36,15 +36,15 @@ void	pb_helper(b_stack *b, int temp)
 	return ;
 }
 
-void	pb(a_stack *a, b_stack *b)
+void	pb(t_astack *a, t_bstack *b)
 {
-	int temp_to_b;
+	int	temp_to_b;
 	int	temp;
 	int	count;
 	int	max;
 
 	if (a->total == 0)
-		return ;	
+		return ;
 	temp_to_b = a->numb;
 	max = a->total;
 	a->total -= 1;
@@ -52,7 +52,7 @@ void	pb(a_stack *a, b_stack *b)
 	while (count < (max - 1))
 	{	
 		temp = a->next->numb;
-		a->numb = temp;	
+		a->numb = temp;
 		a = a->next;
 		count++;
 	}
@@ -62,7 +62,7 @@ void	pb(a_stack *a, b_stack *b)
 	return ;
 }
 
-void	pa_helper(a_stack *a, int temp)
+void	pa_helper(t_astack *a, int temp)
 {
 	int	temp2;
 	int	count;
@@ -86,9 +86,9 @@ void	pa_helper(a_stack *a, int temp)
 	return ;
 }
 
-void	pa(a_stack *a, b_stack *b)
+void	pa(t_astack *a, t_bstack *b)
 {
-	int temp_to_a;
+	int	temp_to_a;
 	int	temp;
 	int	count;
 	int	max;
@@ -102,7 +102,7 @@ void	pa(a_stack *a, b_stack *b)
 	while (count < (max - 1))
 	{	
 		temp = b->next->numb;
-		b->numb = temp;	
+		b->numb = temp;
 		b = b->next;
 		count++;
 	}

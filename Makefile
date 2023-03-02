@@ -21,6 +21,7 @@ SRC	:=	./srcs/main.c \
 		./srcs/writing.c \
 		./srcs/sorting.c \
 		./srcs/smaller_sorting.c \
+		./srcs/smaller_sorting_3.c \
 		./srcs/sorting_helpers.c \
 
 OBJ := $(SRC:.c=.o)

@@ -6,13 +6,13 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:21:15 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/01 16:40:28 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:49:57 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	printf_stack(a_stack *a, b_stack *b)
+void	printf_stack(t_astack *a, t_bstack *b)
 {
 	int	count;
 	int	max;
@@ -41,14 +41,14 @@ void	printf_stack(a_stack *a, b_stack *b)
 	return ;
 }
 
-int	allocate_stack_b(b_stack *b, int max)
+int	allocate_stack_b(t_bstack *b, int max)
 {
 	int	index;
 
 	index = 0;
 	while (index < max)
 	{
-		b->next = malloc(sizeof(b_stack));
+		b->next = malloc(sizeof(t_bstack));
 		if (!b->next)
 			return (index);
 		b = b->next;
@@ -58,7 +58,7 @@ int	allocate_stack_b(b_stack *b, int max)
 	return (-1);
 }
 
-int	arguments(int argc, char *argv[], a_stack *a, b_stack *b)
+int	arguments(int argc, char *argv[], t_astack *a, t_bstack *b)
 {
 	argv = argument_check(argc, argv);
 	if (!argv)
@@ -98,15 +98,15 @@ int	arguments(int argc, char *argv[], a_stack *a, b_stack *b)
 
 int	main(int argc, char *argv[])
 {
-	a_stack *a;
-	b_stack *b;
+	t_astack	*a;
+	t_bstack	*b;
 
 	if (argc < 2)
 		exit(EXIT_SUCCESS);
-	a = ft_calloc(1, sizeof(a_stack));
+	a = ft_calloc(1, sizeof(t_astack));
 	if (!a)
 		error_exit("Error\nAllocation failed");
-	b = ft_calloc(1, sizeof(b_stack));
+	b = ft_calloc(1, sizeof(t_bstack));
 	if (!b)
 	{
 		free(a);
@@ -124,6 +124,7 @@ int	main(int argc, char *argv[])
 	}
 	if (sorting(a, b) == -1)
 	{
+		printf_stack(a, b);
 		free_both_lists(a, b);
 		error_exit("Error\nFailed sorting");
 	}

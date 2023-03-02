@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 14:08:33 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/20 15:42:45 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/02 10:56:50 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	check_negative(char *str_arg)
 {
 	char	*str;
 	int		index;
+
 	index = 0;
 	str = ft_calloc(13, sizeof(char));
 	if (!str)
@@ -73,7 +74,7 @@ int	overflow_check(int argc, char *argv[])
 {
 	int	index;
 	int	max;
-	
+
 	max = 0;
 	while (argv[max])
 		max++;

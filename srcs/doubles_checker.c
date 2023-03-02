@@ -6,13 +6,13 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 13:10:38 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/20 13:31:17 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/02 11:00:03 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	checker_function(a_stack *a, int numb)
+int	checker_function(t_astack *a, int numb)
 {
 	int	count_loop;
 	int	count;
@@ -33,11 +33,11 @@ int	checker_function(a_stack *a, int numb)
 	return (1);
 }
 
-int	doubles_checker(a_stack *a)
+int	doubles_checker(t_astack *a)
 {
-	int	count;
-	int	max;
-	a_stack *head;
+	int			count;
+	int			max;
+	t_astack	*head;
 
 	count = 0;
 	max = a->total;

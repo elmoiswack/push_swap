@@ -6,13 +6,13 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:52:06 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/01 11:23:33 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/02 16:40:53 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	is_a_sorted(a_stack *a)
+int	is_a_sorted(t_astack *a)
 {
 	int	max;
 	int	count;
@@ -32,11 +32,11 @@ int	is_a_sorted(a_stack *a)
 	return (1);
 }
 
-void	push_to_a(a_stack *a, b_stack *b)
+void	push_to_a(t_astack *a, t_bstack *b)
 {
 	int	max;
 	int	count;
-	
+
 	max = b->total;
 	count = 0;
 	while (count < max)
@@ -47,36 +47,38 @@ void	push_to_a(a_stack *a, b_stack *b)
 	return ;
 }
 
-int	get_biggest_numb(a_stack *a)
+int	get_biggest_numb(char **numb_arr, int max)
 {
 	int	biggest;
-	int max;
+	int	new_numb;
 	int	count;
+	int	index;
 
-	max = a->total;
+	index = 0;
 	count = 0;
-	biggest = a->numb;
+	biggest = ft_atoi(numb_arr[index]);
 	while (count < max)
 	{
-		if (a->numb > biggest)
+		new_numb = ft_atoi(numb_arr[index]);
+		if (new_numb > biggest)
 		{
-			biggest = a->numb;
-			a = a->next;
+			biggest = new_numb;
+			index++;
 			count++;
 		}
 		else
 		{
-			a = a->next;
+			index++;
 			count++;
 		}
 	}
 	return (biggest);
 }
 
-int	get_smallest_numb(a_stack *a)
+int	get_smallest_numb(t_astack *a)
 {
 	int	smallest;
-	int max;
+	int	max;
 	int	count;
 
 	max = a->total;
@@ -99,7 +101,7 @@ int	get_smallest_numb(a_stack *a)
 	return (smallest);
 }
 
-int	get_position(int numb_to_find, a_stack *a)
+int	get_position(int numb_to_find, t_astack *a)
 {
 	int	max;
 	int	count;
@@ -109,9 +111,9 @@ int	get_position(int numb_to_find, a_stack *a)
 	while (count < (max - 1))
 	{
 		if (numb_to_find == a->numb)
-			break;
+			break ;
 		count++;
-		a = a->next;	
+		a = a->next;
 	}
 	return (count);
 }

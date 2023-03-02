@@ -6,13 +6,13 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:54:23 by dhussain          #+#    #+#             */
-/*   Updated: 2023/02/17 15:43:54 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/02 10:51:48 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	ra(a_stack *a)
+void	ra(t_astack *a)
 {
 	int	temp_begin;
 	int	temp;
@@ -25,7 +25,7 @@ void	ra(a_stack *a)
 	while (count < (max - 1))
 	{	
 		temp = a->next->numb;
-		a->numb = temp;	
+		a->numb = temp;
 		a = a->next;
 		count++;
 	}
@@ -34,7 +34,7 @@ void	ra(a_stack *a)
 	return ;
 }
 
-void	rb(b_stack *b)
+void	rb(t_bstack *b)
 {
 	int	temp_begin;
 	int	temp;
@@ -47,7 +47,7 @@ void	rb(b_stack *b)
 	while (count < (max - 1))
 	{	
 		temp = b->next->numb;
-		b->numb = temp;	
+		b->numb = temp;
 		b = b->next;
 		count++;
 	}
@@ -56,7 +56,7 @@ void	rb(b_stack *b)
 	return ;
 }
 
-void	rr(a_stack *a, b_stack *b)
+void	rr(t_astack *a, t_bstack *b)
 {
 	ra(a);
 	rb(b);
