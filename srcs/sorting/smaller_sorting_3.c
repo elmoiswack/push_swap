@@ -6,11 +6,11 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:01:29 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/02 11:06:49 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/06 10:04:56 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 int	big_big3(t_astack *a)
 {

@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:21:15 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/02 13:49:57 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/06 17:04:59 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,13 +118,13 @@ int	main(int argc, char *argv[])
 		argc = a->total + 1;
 	if (smaller_sorting(a, b, argc) == 1)
 	{
-		printf_stack(a, b);
+		//printf_stack(a, b);
 		free_both_lists(a, b);
 		exit(EXIT_SUCCESS);
 	}
-	if (sorting(a, b) == -1)
+	if (sorting(a, b, a->total) == -1)
 	{
-		printf_stack(a, b);
+		//printf_stack(a, b);
 		free_both_lists(a, b);
 		error_exit("Error\nFailed sorting");
 	}

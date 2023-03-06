@@ -6,11 +6,11 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:04:44 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/02 17:30:39 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:54:28 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 char	**copy_array(t_astack *a)
 {
@@ -29,6 +29,7 @@ char	**copy_array(t_astack *a)
 		a = a->next;
 		index++;
 	}
+	arr[index] = NULL;
 	return (arr);
 }
 
@@ -38,8 +39,7 @@ int	find_pivot(char **numb_arr, int max)
 	int	biggest;
 	int	index;
 	int	middle;
-	char	*temp;
-	
+
 	middle = max / 2;
 	while (max > middle)
 	{
@@ -49,59 +49,59 @@ int	find_pivot(char **numb_arr, int max)
 		{
 			if (ft_atoi(numb_arr[index]) == biggest)
 			{
-				while (index < (max - 1))
-				{
-					temp = numb_arr[index + 1];
-					numb_arr[index] = temp;
-					index++;
-				}
+				numb_arr = biggest_numb_to_end(numb_arr, max, index);
 				break ;
 			}
 			index++;
 		}
 		max--;
 	}
-	index = 0;
-	while (index < max)
-	{
-		printf("aa %s\n", numb_arr[index]);
-		index++;
-	}
 	pivot = get_biggest_numb(numb_arr, max);
 	return (pivot);
 }
 
-void	pivot_to_b(t_astack *a, t_bstack *b, int pivot)
+int	pivot_to_b(t_astack *a, t_bstack *b, int pivot)
 {
 	int	count;
+	int	push_count;
 	int	max;
 	
 	count = 0;
+	push_count = 0;
 	max = a->total;
 	while (count < (max - 1))
 	{
 		if (a->numb < pivot)
+		{
 			pb(a, b);
+			push_count++;
+		}
 		else
 			ra(a);
 		count++;
 	}
-	return ;
+	return (push_count);
 }
 
-int	sorting(t_astack *a, t_bstack *b)
+int	pivot_to_a(t_astack *a, t_bstack *b, int pivot)
 {
-	char	**numb_arr;
-	int		pivot;
-
-	if (is_a_sorted(a) == 1)
-		return (1);
-	numb_arr = copy_array(a);
-	if (!numb_arr)
-		return (-1);
-	pivot = find_pivot(numb_arr, a->total);
-	printf("pivot = %i\n", pivot);
-	//pivot_to_b(a, b, pivot);
-	printf_stack(a, b);
-	exit(1);
+	int	count;
+	int	push_count;
+	int	max;
+	
+	count = 0;
+	push_count = 0;
+	max = b->total;
+	while (count < (max - 1))
+	{
+		if (b->numb < pivot)
+		{
+			pa(a, b);
+			push_count++;
+		}
+		else
+			rb(b);
+		count++;
+	}
+	return (push_count);
 }
