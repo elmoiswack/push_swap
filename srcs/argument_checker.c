@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 12:27:48 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/02 11:00:26 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/07 10:19:45 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	digit_check(char *str)
 
 char	**string_argument(char *argv[])
 {
-	int	index_x;
+	int		index_x;
+	char	**temp;
 
 	index_x = 0;
 	while (argv[1][index_x] && argv[1][index_x] != ' ')
@@ -46,7 +47,14 @@ char	**string_argument(char *argv[])
 	{
 		if (digit_check(argv[1]) == -1)
 			return (NULL);
-		exit(EXIT_SUCCESS);
+		temp = ft_calloc(1, sizeof(char));
+		if (!temp)
+			return (NULL);
+		temp[0] = ft_calloc(1, sizeof(char));
+		if (!temp[0])
+			return (NULL);
+		temp[0][0] = 'a';
+		return (temp);
 	}
 	return (argv);
 }
@@ -64,6 +72,8 @@ char	**argument_check(int argc, char *argv[])
 		argv = string_argument(argv);
 		if (!argv)
 			return (NULL);
+		if (argv[0][0] == 'a')
+			return (argv);
 	}
 	while (argv[index])
 	{

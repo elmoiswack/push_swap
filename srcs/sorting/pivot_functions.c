@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   pivot_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:04:44 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/06 16:54:28 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:59:30 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-char	**copy_array(t_astack *a)
+char	**copy_array_a(t_astack *a)
 {
 	char	**arr;
 	int		index;
@@ -20,7 +20,7 @@ char	**copy_array(t_astack *a)
 
 	max = a->total;
 	index = 0;
-	arr = malloc(max * sizeof(char *));
+	arr = ft_calloc(max, sizeof(char *));
 	if (!arr)
 		return (NULL);
 	while (index < max)
@@ -29,7 +29,26 @@ char	**copy_array(t_astack *a)
 		a = a->next;
 		index++;
 	}
-	arr[index] = NULL;
+	return (arr);
+}
+
+char	**copy_array_b(t_bstack *b)
+{
+	char	**arr;
+	int		index;
+	int		max;
+
+	max = b->total;
+	index = 0;
+	arr = ft_calloc(max, sizeof(char *));
+	if (!arr)
+		return (NULL);
+	while (index < max)
+	{
+		arr[index] = ft_itoa(b->numb);
+		b = b->next;
+		index++;
+	}
 	return (arr);
 }
 
@@ -38,29 +57,30 @@ int	find_pivot(char **numb_arr, int max)
 	int	pivot;
 	int	biggest;
 	int	index;
-	int	middle;
+	int	arr_max;
 
-	middle = max / 2;
-	while (max > middle)
+	arr_max = max;
+	index = 0;
+	while (arr_max > 0)
 	{
-		biggest = get_biggest_numb(numb_arr, max);
+		biggest = get_biggest_numb(numb_arr, arr_max);
 		index = 0;
 		while (numb_arr[index])
 		{
 			if (ft_atoi(numb_arr[index]) == biggest)
 			{
-				numb_arr = biggest_numb_to_end(numb_arr, max, index);
+				numb_arr = biggest_numb_to_end(numb_arr, arr_max, index);
 				break ;
 			}
 			index++;
 		}
-		max--;
+		arr_max--;
 	}
-	pivot = get_biggest_numb(numb_arr, max);
+	pivot = ft_atoi(numb_arr[max / 2]);
 	return (pivot);
 }
 
-int	pivot_to_b(t_astack *a, t_bstack *b, int pivot)
+int	pivot_to_b(t_astack *a, t_bstack *b, int pivot, int pushed)
 {
 	int	count;
 	int	push_count;
@@ -69,7 +89,9 @@ int	pivot_to_b(t_astack *a, t_bstack *b, int pivot)
 	count = 0;
 	push_count = 0;
 	max = a->total;
-	while (count < (max - 1))
+	if (pushed == 2)
+		return (0);
+	while (count < pushed)
 	{
 		if (a->numb < pivot)
 		{
@@ -80,10 +102,16 @@ int	pivot_to_b(t_astack *a, t_bstack *b, int pivot)
 			ra(a);
 		count++;
 	}
+	count = count - push_count;
+	while (count > 0)
+	{
+		rra(a);
+		count--;
+	}
 	return (push_count);
 }
 
-int	pivot_to_a(t_astack *a, t_bstack *b, int pivot)
+int	pivot_to_a(t_astack *a, t_bstack *b, int pivot, int pushed)
 {
 	int	count;
 	int	push_count;
@@ -92,9 +120,11 @@ int	pivot_to_a(t_astack *a, t_bstack *b, int pivot)
 	count = 0;
 	push_count = 0;
 	max = b->total;
-	while (count < (max - 1))
+	if (pushed == 2)
+		return (0);
+	while (count < pushed)
 	{
-		if (b->numb < pivot)
+		if (b->numb > pivot)
 		{
 			pa(a, b);
 			push_count++;
@@ -102,6 +132,12 @@ int	pivot_to_a(t_astack *a, t_bstack *b, int pivot)
 		else
 			rb(b);
 		count++;
+	}
+	count = count - push_count;
+	while (count > 0)
+	{
+		rrb(b);
+		count--;
 	}
 	return (push_count);
 }

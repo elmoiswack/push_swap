@@ -19,11 +19,13 @@ SRC	:=	./srcs/main.c \
 		./srcs/operations/reverse_rotate.c \
 		./srcs/operations/push.c \
 		./srcs/writing.c \
-		./srcs/sorting/sorting.c \
+		./srcs/sorting/pivot_functions.c \
 		./srcs/sorting/sorting_algorithm.c \
 		./srcs/sorting/smaller_sorting.c \
 		./srcs/sorting/smaller_sorting_3.c \
+		./srcs/sorting/smaller_sorting_3_b.c \
 		./srcs/sorting/sorting_helpers.c \
+		./srcs/sorting/sorting_algorithm_small.c \
 		./srcs/sorting/sorting_helpers_small.c \
 
 OBJ := $(SRC:.c=.o)

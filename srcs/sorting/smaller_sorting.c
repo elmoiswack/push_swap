@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:19:37 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/06 10:31:43 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:56:31 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 int	sort_2numb(t_astack *a)
 {
 	if (a->numb > a->next->numb)
-	{
 		sa(a);
-		return (1);
-	}
-	return (0);
+	return (1);
 }
 
 int	sort_4numb(t_astack *a, t_bstack *b)

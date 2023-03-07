@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:21:15 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/06 17:04:59 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:03:45 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,14 @@ int	arguments(int argc, char *argv[], t_astack *a, t_bstack *b)
 		free(b);
 		return (-1);
 	}
+	if (argv[0][0] == 'a')
+	{
+		free(a);
+		free(b);
+		free(argv[0]);
+		free(argv);
+		exit(EXIT_SUCCESS);
+	}
 	if (overflow_check(argc, argv) == -1)
 	{
 		free(a);
@@ -122,12 +130,7 @@ int	main(int argc, char *argv[])
 		free_both_lists(a, b);
 		exit(EXIT_SUCCESS);
 	}
-	if (sorting(a, b, a->total) == -1)
-	{
-		//printf_stack(a, b);
-		free_both_lists(a, b);
-		error_exit("Error\nFailed sorting");
-	}
+	sorting(a, b, a->total);
 	printf_stack(a, b);
 	free_both_lists(a, b);
 	exit(EXIT_SUCCESS);

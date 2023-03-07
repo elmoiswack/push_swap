@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 11:58:04 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/06 15:29:07 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:46:26 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,15 +75,11 @@ void	free_both_lists(t_astack *a, t_bstack *b)
 	return ;
 }
 
-void	free_arr(char *arr[])
+void	free_arr(char *arr[], int max)
 {
 	int	index;
-	int	max;
 
-	max = 0;
 	index = 0;
-	while (arr[max] != NULL)
-		max++;
 	while (index < max)
 	{
 		free(arr[index]);

@@ -6,60 +6,18 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:52:06 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/06 15:03:50 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:57:22 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int	is_a_sorted(t_astack *a)
+void	push_to_a(t_astack *a, t_bstack *b, int push_count)
 {
-	int	max;
 	int	count;
 
-	max = a->total;
 	count = 0;
-	while (count < (max - 1))
-	{
-		if (a->numb < a->next->numb)
-		{
-			count++;
-			a = a->next;
-		}
-		else
-			return (-1);
-	}
-	return (1);
-}
-
-int	is_b_sorted(t_bstack *b)
-{
-	int	max;
-	int	count;
-
-	max = b->total;
-	count = 0;
-	while (count < (max - 1))
-	{
-		if (b->numb > b->next->numb)
-		{
-			count++;
-			b = b->next;
-		}
-		else
-			return (-1);
-	}
-	return (1);
-}
-
-void	push_to_a(t_astack *a, t_bstack *b)
-{
-	int	max;
-	int	count;
-
-	max = b->total;
-	count = 0;
-	while (count < max)
+	while (count < push_count)
 	{
 		pa(a, b);
 		count++;
