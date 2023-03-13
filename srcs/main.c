@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:21:15 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/07 14:03:45 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:26:37 by dantehussai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,31 @@ int	allocate_stack_b(t_bstack *b, int max)
 	return (-1);
 }
 
+int	second_arguments(int argc, char *argv[], t_astack *a, t_bstack *b)
+{
+	if (into_stack(argv, argc, a) == -1)
+	{
+		free_a_list(a);
+		free(b);
+		return (-1);
+	}
+	if (doubles_checker(a) == -1)
+	{
+		free_a_list(a);
+		free(b);
+		return (-1);
+	}
+	b->total = allocate_stack_b(b, a->total);
+	if (b->total != -1)
+	{
+		free_a_list(a);
+		free_b_list(b);
+		return (-1);
+	}
+	b->total = 0;
+	return (1);
+}
+
 int	arguments(int argc, char *argv[], t_astack *a, t_bstack *b)
 {
 	argv = argument_check(argc, argv);
@@ -81,27 +106,7 @@ int	arguments(int argc, char *argv[], t_astack *a, t_bstack *b)
 		free(b);
 		return (-1);
 	}
-	if (into_stack(argv, argc, a) == -1)
-	{
-		free_a_list(a);
-		free(b);
-		return (-1);
-	}
-	if (doubles_checker(a) == -1)
-	{
-		free_a_list(a);
-		free(b);
-		return (-1);
-	}
-	b->total = allocate_stack_b(b, a->total);
-	if (b->total != -1)
-	{
-		free_a_list(a);
-		free_b_list(b);
-		return (-1);
-	}
-	b->total = 0;
-	return (1);
+	return (second_arguments(argc, argv, a, b));
 }
 
 int	main(int argc, char *argv[])
@@ -126,7 +131,7 @@ int	main(int argc, char *argv[])
 		argc = a->total + 1;
 	if (smaller_sorting(a, b, argc) == 1)
 	{
-		//printf_stack(a, b);
+		printf_stack(a, b);
 		free_both_lists(a, b);
 		exit(EXIT_SUCCESS);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:08:04 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/07 15:10:57 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:27:14 by dantehussai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,31 +50,37 @@ void	free_arr(char *arr[], int max);
 //other functions
 void	writing_operations(int i);
 
-//smaller sorting
+//SORTING FUNCTIONS
+//smaller_sorting.c
 int		smaller_sorting(t_astack *a, t_bstack *b, int argc);
-int		get_smallest_numb(t_astack *a);
-int		get_position(int smallest_numb, t_astack *a);
 int		sort_2numb(t_astack *a);
-int		sort_3numb(t_astack *a);
 int		sort_4numb(t_astack *a, t_bstack *b);
 int		sort_5numb(t_astack *a, t_bstack *b);
-
-//sorting
+//sorting_helpers_small.c
+int		get_smallest_numb(t_astack *a);
+int		get_position(int smallest_numb, t_astack *a);
+//smaller_sorting_3.c
+int		sort_3numb(t_astack *a);
+//sorting_algorithm.c
 void	sorting(t_astack *a, t_bstack *b, int push_count);
 void	sorting_b(t_astack *a, t_bstack *b, int push_count);
+//sorting_helpers.c
+char	**biggest_numb_to_end(char **numb_arr, int max, int index);
 int		get_biggest_numb(char **numb_arr, int max);
+void	push_to_a(t_astack *a, t_bstack *b, int push_count);
+//pivot_functions.c
 char	**copy_array_a(t_astack *a);
 char	**copy_array_b(t_bstack *b);
-void	push_to_a(t_astack *a, t_bstack *b, int push_count);
 int		find_pivot(char **numb_arr, int max);
 int		pivot_to_a(t_astack *a, t_bstack *b, int pivot, int pushed);
 int		pivot_to_b(t_astack *a, t_bstack *b, int pivot, int pushed);
-int		extra_sort_a(t_astack *a, int push);
-int		extra_sort_b(t_bstack *b, int push);
-int		sort_3numb_b(t_bstack *b);
+//sorting_algorithm_small.c
 int		is_a_sorted(t_astack *a);
 int		is_b_sorted(t_bstack *b);
-char	**biggest_numb_to_end(char **numb_arr, int max, int index);
+int		extra_sort_a(t_astack *a, int push);
+int		extra_sort_b(t_bstack *b, int push);
+//smaller_sorting_3_b.c
+int		sort_3numb_b(t_bstack *b);
 
 //operations
 void	sa(t_astack *a);

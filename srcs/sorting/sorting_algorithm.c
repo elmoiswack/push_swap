@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_algorithm.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 16:45:52 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/07 16:57:54 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:11:57 by dantehussai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
