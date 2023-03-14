@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:08:04 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/14 10:58:56 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:38:10 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,18 @@ typedef struct stack_b {
 	struct stack_b	*next;
 }	t_bstack;
 
-void	printf_stack(t_astack *a, t_bstack *b);
+//operations
+void	sa(t_astack *a);
+void	sb(t_bstack *b);
+void	ss(t_astack *a, t_bstack *b);
+void	ra(t_astack *a);
+void	rb(t_bstack *b);
+void	rr(t_astack *a, t_bstack *b);
+void	rra(t_astack *a);
+void	rrb(t_bstack *b);
+void	rrr(t_astack *a, t_bstack *b);
+void	pb(t_astack *a, t_bstack *b);
+void	pa(t_astack *a, t_bstack *b);
 
 //arguments checks
 char	**argument_check(int argc, char *argv[]);
@@ -82,18 +93,5 @@ int		extra_sort_a(t_astack *a, int push);
 int		extra_sort_b(t_bstack *b, int push);
 //smaller_sorting_3_b.c
 int		sort_3numb_b(t_bstack *b);
-
-//operations
-void	sa(t_astack *a);
-void	sb(t_bstack *b);
-void	ss(t_astack *a, t_bstack *b);
-void	ra(t_astack *a);
-void	rb(t_bstack *b);
-void	rr(t_astack *a, t_bstack *b);
-void	rra(t_astack *a);
-void	rrb(t_bstack *b);
-void	rrr(t_astack *a, t_bstack *b);
-void	pb(t_astack *a, t_bstack *b);
-void	pa(t_astack *a, t_bstack *b);
 
 #endif
