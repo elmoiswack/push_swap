@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 12:11:47 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/02 11:31:14 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:21:34 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	into_stack_loop(int index_y, int y_max, char *argv[], t_astack *a)
 		a->numb = ft_atoi(argv[index_y]);
 		if (index_y < (y_max - 1))
 		{
-			a->next = malloc(sizeof(t_astack));
+			a->next = ft_calloc(1, sizeof(t_astack));
 			if (!a->next)
 			{
 				a->total = index_y;

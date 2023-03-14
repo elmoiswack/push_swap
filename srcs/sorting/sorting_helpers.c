@@ -6,13 +6,13 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:52:06 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/07 16:57:22 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/14 11:42:31 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	push_to_a(t_astack *a, t_bstack *b, int push_count)
+int	push_to_a(t_astack *a, t_bstack *b, int push_count)
 {
 	int	count;
 
@@ -22,7 +22,7 @@ void	push_to_a(t_astack *a, t_bstack *b, int push_count)
 		pa(a, b);
 		count++;
 	}
-	return ;
+	return (1);
 }
 
 int	get_biggest_numb(char **numb_arr, int max)

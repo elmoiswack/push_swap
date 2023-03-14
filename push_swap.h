@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
+/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:08:04 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/13 15:27:14 by dantehussai      ###   ########.fr       */
+/*   Updated: 2023/03/14 10:58:56 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,19 @@ int		get_position(int smallest_numb, t_astack *a);
 //smaller_sorting_3.c
 int		sort_3numb(t_astack *a);
 //sorting_algorithm.c
-void	sorting(t_astack *a, t_bstack *b, int push_count);
-void	sorting_b(t_astack *a, t_bstack *b, int push_count);
+int		sorting(t_astack *a, t_bstack *b, int push_count);
+int		sorting_b(t_astack *a, t_bstack *b, int push_count);
 //sorting_helpers.c
 char	**biggest_numb_to_end(char **numb_arr, int max, int index);
 int		get_biggest_numb(char **numb_arr, int max);
-void	push_to_a(t_astack *a, t_bstack *b, int push_count);
+int		push_to_a(t_astack *a, t_bstack *b, int push_count);
 //pivot_functions.c
-char	**copy_array_a(t_astack *a);
-char	**copy_array_b(t_bstack *b);
 int		find_pivot(char **numb_arr, int max);
 int		pivot_to_a(t_astack *a, t_bstack *b, int pivot, int pushed);
 int		pivot_to_b(t_astack *a, t_bstack *b, int pivot, int pushed);
+//pivot_functions_helpers.c
+char	**copy_array_a(t_astack *a);
+char	**copy_array_b(t_bstack *b);
 //sorting_algorithm_small.c
 int		is_a_sorted(t_astack *a);
 int		is_b_sorted(t_bstack *b);

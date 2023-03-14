@@ -20,6 +20,7 @@ SRC	:=	./srcs/main.c \
 		./srcs/operations/push.c \
 		./srcs/writing.c \
 		./srcs/sorting/pivot_functions.c \
+		./srcs/sorting/pivot_functions_helpers.c \
 		./srcs/sorting/sorting_algorithm.c \
 		./srcs/sorting/smaller_sorting.c \
 		./srcs/sorting/smaller_sorting_3.c \
@@ -30,7 +31,7 @@ SRC	:=	./srcs/main.c \
 
 OBJ := $(SRC:.c=.o)
 
-CC	:=	gcc 
+CC	:=	gcc
 
 CFLAGS	:= -Wall -Wextra -Werror
 

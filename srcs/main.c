@@ -3,43 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dantehussain <dantehussain@student.42.f    +#+  +:+       +#+        */
+/*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:21:15 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/13 15:26:37 by dantehussai      ###   ########.fr       */
+/*   Updated: 2023/03/14 14:34:03 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	printf_stack(t_astack *a, t_bstack *b)
-{
-	int	count;
-	int	max;
-	
-	max = a->total;
-	count = 0;
-	while (count < max)
-	{
-		printf("a numb = %i\n", a->numb);
-		a = a->next;
-		count++;
-	}
-	int	b_max;
-	int	b_count;
-	b_count = 0;
-	b_max = b->total;
-	if (b_max == 0)
-		return ;
-	printf("\n");
-	while (b_count < b_max)
-	{
-		printf("b numb = %i\n", b->numb);
-		b_count++;
-		b = b->next;
-	}
-	return ;
-}
 
 int	allocate_stack_b(t_bstack *b, int max)
 {
@@ -48,7 +19,7 @@ int	allocate_stack_b(t_bstack *b, int max)
 	index = 0;
 	while (index < max)
 	{
-		b->next = malloc(sizeof(t_bstack));
+		b->next = ft_calloc(1, sizeof(t_bstack));
 		if (!b->next)
 			return (index);
 		b = b->next;
@@ -109,6 +80,21 @@ int	arguments(int argc, char *argv[], t_astack *a, t_bstack *b)
 	return (second_arguments(argc, argv, a, b));
 }
 
+void	which_sorting(t_astack *a, t_bstack *b, int argc)
+{
+	if (smaller_sorting(a, b, argc) == 1)
+	{
+		free_both_lists(a, b);
+		exit(EXIT_SUCCESS);
+	}
+	if (sorting(a, b, a->total) == -1)
+	{
+		free_both_lists(a, b);
+		error_exit("Error\nSorting failed");
+	}
+	return ;
+}
+
 int	main(int argc, char *argv[])
 {
 	t_astack	*a;
@@ -129,14 +115,7 @@ int	main(int argc, char *argv[])
 		error_exit("Error\nArguments wrong");
 	if (argc == 2)
 		argc = a->total + 1;
-	if (smaller_sorting(a, b, argc) == 1)
-	{
-		printf_stack(a, b);
-		free_both_lists(a, b);
-		exit(EXIT_SUCCESS);
-	}
-	sorting(a, b, a->total);
-	printf_stack(a, b);
+	which_sorting(a, b, argc);
 	free_both_lists(a, b);
 	exit(EXIT_SUCCESS);
 }

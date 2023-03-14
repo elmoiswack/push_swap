@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:48:17 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/07 16:56:00 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/14 10:43:18 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	is_b_sorted(t_bstack *b)
 			b = b->next;
 		}
 		else
-			return (-1);		
+			return (-1);
 	}
 	return (1);
 }
@@ -65,8 +65,8 @@ int	extra_sort_b(t_bstack *b, int push)
 		return (1);
 	if (push == 2)
 	{
-		if (sort_2numb_b(b) == 1)	
-			return (1);		
+		if (sort_2numb_b(b) == 1)
+			return (1);
 	}
 	if (is_b_sorted(b) == 1)
 		return (1);

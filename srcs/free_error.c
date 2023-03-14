@@ -6,7 +6,7 @@
 /*   By: dhussain <dhussain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 11:58:04 by dhussain          #+#    #+#             */
-/*   Updated: 2023/03/07 13:46:26 by dhussain         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:22:18 by dhussain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,64 +14,36 @@
 
 void	free_a_list(t_astack *a)
 {
-	int			count;
-	int			max;
 	t_astack	*temp;
 
-	max = a->total;
-	count = 0;
-	while (count < max)
+	while (a->next != NULL)
 	{
 		temp = a;
 		a = a->next;
 		free(temp);
-		count++;
 	}
+	free(a);
 	return ;
 }
 
 void	free_b_list(t_bstack *b)
 {
-	int			count;
-	int			max;
 	t_bstack	*temp;
 
-	max = b->total;
-	count = 0;
-	while (count < max)
+	while (b->next != NULL)
 	{
 		temp = b;
 		b = b->next;
 		free(temp);
-		count++;
 	}
+	free(b);
 	return ;
 }
 
 void	free_both_lists(t_astack *a, t_bstack *b)
 {
-	int			count;
-	int			max;
-	t_astack	*a_temp;
-	t_bstack	*b_temp;
-
-	max = a->total;
-	count = 0;
-	while (count < max)
-	{
-		a_temp = a;
-		a = a->next;
-		free(a_temp);
-		count++;
-	}	
-	count = 0;
-	while (count < (max + 1))
-	{
-		b_temp = b;
-		b = b->next;
-		free(b_temp);
-		count++;
-	}
+	free_a_list(a);
+	free_b_list(b);
 	return ;
 }
 
